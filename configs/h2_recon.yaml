@@ -1,0 +1,48 @@
+include: default_cpu_config.yaml
+data:
+  dataset: ciciot2023
+  held_out_classes:
+  - Recon
+  known_classes:
+  - Benign
+  - DDoS
+  - DoS
+  - Web-based
+  - Brute Force
+  - Spoofing
+  - Mirai
+training:
+  batch_size: 256
+  num_workers: 0
+  epochs: 30
+  patience: 6
+  lr: 0.001
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  seed: 42
+  device: cpu
+  dtype: float32
+  temperature: 0.5
+  margin_open: 1.0
+  margin_sep: 0.5
+  lambda_open: 0.5
+  lambda_sep: 0.01
+model:
+  input_channels: 4
+  embedding_dim: 32
+  dropout: 0.05
+  in_channels: 4
+  input_length: 12
+open_set:
+  threshold_percentile: 99
+  temperature: 0.5
+  open_margin: 1.0
+  separation_margin: 0.5
+  lambda_open: 0.5
+  lambda_sep: 0.01
+resource:
+  dtype: float32
+  max_rows_laptop: 100000
+  chunk_size: 25000
+evaluation:
+  threshold_percentile: 99
