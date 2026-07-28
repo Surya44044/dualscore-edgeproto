@@ -71,19 +71,7 @@ def quantize_model(config_path, data_prefix, model_path, output_dir):
     torch.ao.quantization.convert(q_model, inplace=True)
     
     out_file = os.path.join(output_dir, "edgeproto_int8_ptq.pt")
-    try:
-        scripted = torch.jit.script(q_model)
-        torch.jit.save(scripted, out_file)
-        print(f"Saved TorchScript INT8 model to {out_file}")
-    except Exception as e:
-        print("WARNING: TorchScript save failed; saving eager quantized checkpoint fallback instead.")
-        print(f"TorchScript error: {type(e).__name__}: {e}")
-        torch.save({
-            "model_state_dict": q_model.state_dict(),
-            "format": "eager_quantized_state_dict_fallback",
-            "note": "Smoke-test artifact only. Final deployment export should use ONNX/TFLite/stable TorchScript.",
-        }, out_file)
-        print(f"Saved fallback quantized checkpoint to {out_file}")
+    torch.jit.save(torch.jit.script(q_model), out_file)
     
     # Compare sizes
     fp32_size = os.path.getsize(model_path) / 1024

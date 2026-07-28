@@ -15,7 +15,8 @@ class IoTDataset(Dataset):
         
         # Reshape features to [B, Channels, Length] -> [B, 4, 12]
         # We assume 48 features
-        assert self.features.shape[1] == 48, f"Expected 48 features, got {self.features.shape[1]}"
+        actual_features = self.features.shape[1]
+        assert actual_features == 48, f"Error: Expected exactly 48 numeric features, but got {actual_features}. Ensure preprocess/prepare script pads or truncates correctly."
         self.features = self.features.reshape(-1, 4, 12)
         
         # Build label map if not provided

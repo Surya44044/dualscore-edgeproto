@@ -31,6 +31,6 @@ def compute_oscr(known_scores, unknown_scores, known_labels_correct):
         fprs.append(fpr)
         ccrs.append(ccr)
         
-    # Calculate Area Under Curve (Trapezoidal rule)
-    oscr = (np.trapezoid(ccrs, fprs) if hasattr(np, 'trapezoid') else np.trapz(ccrs, fprs))
+    # Compute OSCR as Area Under the Curve
+    oscr = np.trapezoid(ccrs, fprs)
     return oscr

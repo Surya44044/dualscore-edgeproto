@@ -22,6 +22,14 @@ def make_splits(input_file, config_path, output_dir="data/splits"):
     # Load processed data
     df = pd.read_csv(input_file)
     
+    if 'label' not in df.columns:
+        raise ValueError("Error: Processed CSV is missing the 'label' column.")
+        
+    numeric_cols = [c for c in df.columns if c != 'label']
+    non_numeric = df[numeric_cols].select_dtypes(exclude=[np.number]).columns.tolist()
+    if len(non_numeric) > 0:
+        raise ValueError(f"Error: Non-numeric features found in processed CSV: {non_numeric}")
+    
     # Filter valid classes
     df = df[df['label'].isin(known_classes + held_out_classes)]
     

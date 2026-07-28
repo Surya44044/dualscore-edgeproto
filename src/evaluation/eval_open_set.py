@@ -78,7 +78,19 @@ def evaluate(config_path, data_prefix, model_path, output_dir):
     print("Closed-Set Metrics:", closed_set_metrics)
     
     # 3. Open-Set Evaluation
-    results = {'closed_set': closed_set_metrics}
+    config_name = os.path.splitext(os.path.basename(config_path))[0]
+    dataset_name = config['data'].get('dataset', 'Unknown')
+    
+    results = {
+        'dataset name': dataset_name,
+        'config name': config_name,
+        'known accuracy': float(closed_set_metrics['accuracy']),
+        'known precision': float(closed_set_metrics['precision']),
+        'known recall': float(closed_set_metrics['recall']),
+        'known F1': float(closed_set_metrics['f1']),
+        'per_class': closed_set_metrics['per_class'],
+        'label_map': label_map
+    }
     
     if has_unknown and len(test_u_scores) > 0:
         # Known vs Unknown detection
@@ -99,12 +111,9 @@ def evaluate(config_path, data_prefix, model_path, output_dir):
         oscr = compute_oscr(k_max_scores, u_max_scores, correct_k)
         print(f"OSCR: {oscr:.4f}")
         
-        results['open_set'] = {
-            'auroc': float(auroc),
-            'oscr': float(oscr)
-        }
+        results['AUROC'] = float(auroc)
+        results['OSCR'] = float(oscr)
         
-    config_name = os.path.splitext(os.path.basename(config_path))[0]
     out_file = os.path.join(output_dir, f"{config_name}_results.json")
     with open(out_file, 'w') as f:
         json.dump(results, f, indent=4)
