@@ -20,10 +20,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy dependency requirements first for efficient layer caching
-COPY requirements.txt .
+COPY requirements-api.txt .
 
 # Install CPU-only PyTorch and python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements-api.txt
 
 # Copy application source code and models (no raw/processed datasets)
 COPY src/ /app/src/
