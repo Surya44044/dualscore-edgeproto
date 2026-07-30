@@ -9,6 +9,10 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
+# Model artifacts are not baked into the image.
+# The API will run in demo_mode=True if /app/models is empty.
+RUN mkdir -p /app/models /app/artifacts
+
 # Install system dependencies needed for runtime
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
@@ -25,7 +29,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY src/ /app/src/
 COPY configs/ /app/configs/
 COPY examples/ /app/examples/
-COPY models/ /app/models/
 
 # Expose default HTTP port
 EXPOSE 8000
