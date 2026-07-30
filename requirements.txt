@@ -4,17 +4,13 @@ scikit-learn
 scipy
 matplotlib
 seaborn
-xgboost
-lightgbm
 tqdm
 pyyaml
-torch==2.3.1+cpu
-torchvision==0.18.1+cpu
-torchaudio==2.3.1+cpu
---extra-index-url https://download.pytorch.org/whl/cpu
+torch
 ptflops
 fvcore
 onnx
 onnxruntime
 fastapi
 uvicorn
+httpx

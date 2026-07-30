@@ -48,3 +48,22 @@ logs/*.txt
 .DS_Store
 .idea/
 .vscode/
+
+# Runtime/generated experiment artifacts
+logs/
+models/
+results/
+
+# Generated experiment runner scripts kept local unless explicitly moved to scripts/
+run_day*.py
+run_day*.sh
+run_*repeated*.py
+run_*repeated*.sh
+run_all_baselines.sh
+run_all_po.sh
+run_edgeproto_extended.sh
+run_h1_repeated.sh
+run_po_sanity.sh
+run_preflight.sh
+run_rtiot_holdout.sh
+run_sanity.sh
