@@ -11,6 +11,7 @@ training:
   patience: 6
   num_workers: 0
   dtype: float32
+  device: cpu
   temperature: 0.5
   margin_open: 1.0
   margin_sep: 0.5

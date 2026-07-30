@@ -4,6 +4,8 @@ import yaml
 import argparse
 import os
 import gc
+import numpy as np
+import random
 from src.data.feature_mapping import get_dataloaders
 from src.models.edgeproto import get_model
 from src.training.losses import PrototypeLoss, SeparationLoss
@@ -12,7 +14,11 @@ def load_config(config_path):
     with open(config_path, 'r') as f:
         return yaml.safe_load(f)
 
-def train(config_path, data_prefix, output_dir):
+def train(config_path, data_prefix, output_dir, seed=42):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    
     config = load_config(config_path)
     os.makedirs(output_dir, exist_ok=True)
     
@@ -120,6 +126,7 @@ if __name__ == "__main__":
     parser.add_argument("--config", type=str, required=True, help="Path to config yaml")
     parser.add_argument("--data_prefix", type=str, required=True, help="Prefix for splits (e.g. data/splits/h1_mirai)")
     parser.add_argument("--output_dir", type=str, default="models", help="Output directory for weights")
+    parser.add_argument("--seed", type=int, default=42, help="Random seed")
     args = parser.parse_args()
     
-    train(args.config, args.data_prefix, args.output_dir)
+    train(args.config, args.data_prefix, args.output_dir, args.seed)

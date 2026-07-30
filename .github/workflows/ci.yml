@@ -1,0 +1,44 @@
+name: DualScore CI Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  verify:
+    name: Code Integrity & Secret Scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Minimal Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Python Syntax & Compilation Check
+        run: |
+          python -m compileall -q src
+
+      - name: Verify FastAPI Import
+        run: |
+          python -c "from src.api.app import app; print('FastAPI app loaded:', app.title)"
+
+      - name: Run Secret Leakage Scanner
+        run: |
+          bash scripts/check_no_secrets.sh
+
+      - name: Run API & Synthetic Smoke Tests
+        run: |
+          bash scripts/test_api_local.sh
+          bash scripts/run_synthetic_smoke.sh

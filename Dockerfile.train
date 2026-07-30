@@ -1,0 +1,22 @@
+# Training image for Azure VM / Azure ML CICIoT2023 experiments
+FROM python:3.11-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONPATH=/app
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY src/ /app/src/
+COPY configs/ /app/configs/
+COPY scripts/ /app/scripts/
+
+CMD ["python", "run_day6_repeated_seeds.py"]

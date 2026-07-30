@@ -1,19 +1,50 @@
+# Virtual Environment
 .venv/
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.ipynb_checkpoints/
+venv/
+env/
+ENV/
 
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Environment and Secrets
+.env
+*.env
+service-principal*.json
+azure-credentials*.json
+*.pem
+*.key
+*.pub
+dockerhub_token.txt
+
+# Datasets (Strict Rule: Do not commit raw, processed, or split datasets)
 data/raw/
 data/processed/
 data/splits/
+*.csv
+*.parquet
+*.npz
+*.npy
+!results/tables/*.csv
+!examples/*.json
 
-models/
-results/
+# Model checkpoints (Keep models directory ignored except small committed demo models if any, or keep models/ ignored)
+models/*.pt
+models/*/*.pt
+models/*/*/*.pt
+!models/demo_mode.placeholder
 
+# Logs & Temporary Files
 logs/*.log
 logs/*.txt
-
-*.zip
-*.tar.gz
+!logs/antigravity_backups/
+.DS_Store
+.idea/
+.vscode/

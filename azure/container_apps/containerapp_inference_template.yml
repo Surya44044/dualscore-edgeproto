@@ -1,0 +1,24 @@
+location: eastus
+name: app-dualscore-edgeproto
+resourceGroup: rg-dualscore-edgeproto
+type: Microsoft.App/containerApps
+properties:
+  managedEnvironmentId: /subscriptions/YOUR_SUBSCRIPTION_ID/resourceGroups/rg-dualscore-edgeproto/providers/Microsoft.App/managedEnvironments/env-dualscore-edgeproto
+  configuration:
+    ingress:
+      external: true
+      targetPort: 8000
+      transport: auto
+  template:
+    containers:
+      - name: dualscore-edgeproto-api
+        image: docker.io/YOUR_DOCKERHUB_USERNAME/dualscore-edgeproto:latest
+        resources:
+          cpu: 0.25
+          memory: 0.5Gi
+        env:
+          - name: PORT
+            value: "8000"
+    scale:
+      minReplicas: 0
+      maxReplicas: 5

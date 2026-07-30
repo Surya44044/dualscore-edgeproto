@@ -1,0 +1,7 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+code: ../../
+command: python run_day6_repeated_seeds.py --sample_limit 50000
+environment: azureml:python-3-11-cpu:1
+compute: azureml:cpu-cluster
+display_name: ciciot2023_phase3_50k_samples
+experiment_name: ciciot2023_dualscore_evaluation
