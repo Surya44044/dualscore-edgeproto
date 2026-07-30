@@ -1,8 +1,6 @@
 name: DockerHub Build & Azure Container Apps CD
 
 on:
-  push:
-    branches: [ main ]
   workflow_dispatch:
 
 jobs:
