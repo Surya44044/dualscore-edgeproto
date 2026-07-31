@@ -26,6 +26,18 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+@app.get("/")
+def root():
+    return {
+        "service": "dualscore-edgeproto-api",
+        "message": "DualScore-EdgeProto API is running. Use /health, /metadata, /docs, /predict, or /predict_batch.",
+        "docs": "/docs",
+        "health": "/health",
+        "metadata": "/metadata",
+        "demo_mode": model_manager.demo_mode
+    }
+
 @app.get("/health", response_model=HealthResponse)
 def health_check():
     return HealthResponse(
