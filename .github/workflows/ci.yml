@@ -1,4 +1,4 @@
-name: DualScore CI Pipeline
+name: CI - Code Check
 
 on:
   push:
