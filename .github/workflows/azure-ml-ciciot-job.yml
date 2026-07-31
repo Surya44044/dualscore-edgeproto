@@ -1,4 +1,4 @@
-name: Azure ML CICIoT Experiment Job Template (Manual Only)
+name: Azure ML
 
 on:
   workflow_dispatch:

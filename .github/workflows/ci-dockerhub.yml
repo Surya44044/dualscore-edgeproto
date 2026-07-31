@@ -1,4 +1,4 @@
-name: CI + DockerHub - Test and Publish
+name: Build Image
 
 on:
   push:
