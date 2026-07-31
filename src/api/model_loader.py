@@ -1,9 +1,39 @@
 import os
 import torch
+import torch.nn as nn
 import numpy as np
 import yaml
 from src.models.edgeproto import get_model
-from src.evaluation.evaluate_edgeproto_hybrid import SmallAutoencoder
+
+
+class SmallAutoencoder(nn.Module):
+    """Lightweight 48-feature autoencoder used by the API.
+
+    Kept local to src.api to avoid importing heavy research/evaluation modules
+    such as pandas during container startup.
+    """
+    def __init__(self, input_dim: int = 48):
+        super().__init__()
+        self.encoder = nn.Sequential(
+            nn.Linear(input_dim, 64),
+            nn.ReLU(),
+            nn.Linear(64, 32),
+            nn.ReLU(),
+            nn.Linear(32, 16),
+            nn.ReLU(),
+        )
+        self.decoder = nn.Sequential(
+            nn.Linear(16, 32),
+            nn.ReLU(),
+            nn.Linear(32, 64),
+            nn.ReLU(),
+            nn.Linear(64, input_dim),
+        )
+
+    def forward(self, x):
+        z = self.encoder(x)
+        return self.decoder(z)
+
 
 class DualScoreModelManager:
     def __init__(self, model_dir: str = "models", config_path: str = "configs/rt_h1_arp_spoofing.yaml"):
