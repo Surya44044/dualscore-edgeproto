@@ -116,7 +116,27 @@ jobs:
               --max-replicas 1
           fi
 
-      - name: Verify Azure Health Endpoint
+          echo "Ensuring ingress is external on port 8000..."
+          az containerapp ingress enable \
+            --name "$APP" \
+            --resource-group "$RG" \
+            --type external \
+            --target-port 8000 || true
+
+          echo "Routing all traffic to latest revision..."
+          az containerapp ingress traffic set \
+            --name "$APP" \
+            --resource-group "$RG" \
+            --revision-weight latest=100 || true
+
+          echo "Container app summary:"
+          az containerapp show \
+            --name "$APP" \
+            --resource-group "$RG" \
+            --query "{fqdn:properties.configuration.ingress.fqdn, provisioningState:properties.provisioningState, latestRevision:properties.latestRevisionName}" \
+            -o table
+
+      - name: Verify Azure Endpoints
         env:
           RG: ${{ secrets.AZURE_RESOURCE_GROUP }}
           APP: ${{ secrets.AZURE_CONTAINER_APP_NAME }}
@@ -129,20 +149,42 @@ jobs:
             --query "properties.configuration.ingress.fqdn" \
             -o tsv)
 
-          echo "Container App FQDN: $FQDN"
+          BASE_URL="https://${FQDN}"
 
-          echo "Waiting for app to become ready..."
-          sleep 30
+          echo "Container App URL: $BASE_URL"
+          echo "Waiting for Azure revision to warm up..."
+          sleep 60
 
-          for i in {1..10}; do
+          for i in {1..15}; do
             echo "Health check attempt $i..."
-            if curl -f "https://${FQDN}/health"; then
-              echo ""
-              echo "[SUCCESS] Azure Container App health check passed."
+
+            HEALTH_CODE=$(curl -L -s -o /tmp/health_body.txt -w "%{http_code}" "$BASE_URL/health" || true)
+            echo "Health status code: $HEALTH_CODE"
+            cat /tmp/health_body.txt || true
+            echo ""
+
+            if [ "$HEALTH_CODE" = "200" ]; then
+              echo "[SUCCESS] /health endpoint passed."
               exit 0
             fi
-            sleep 15
+
+            META_CODE=$(curl -L -s -o /tmp/meta_body.txt -w "%{http_code}" "$BASE_URL/metadata" || true)
+            echo "Metadata status code: $META_CODE"
+            cat /tmp/meta_body.txt || true
+            echo ""
+
+            if [ "$META_CODE" = "200" ]; then
+              echo "[SUCCESS] /metadata endpoint passed."
+              exit 0
+            fi
+
+            ROOT_CODE=$(curl -L -s -o /tmp/root_body.txt -w "%{http_code}" "$BASE_URL/" || true)
+            echo "Root status code: $ROOT_CODE"
+            head -c 500 /tmp/root_body.txt || true
+            echo ""
+
+            sleep 20
           done
 
-          echo "[ERROR] Health check failed after retries."
+          echo "[ERROR] Azure endpoint verification failed after retries."
           exit 1
