@@ -112,7 +112,7 @@ jobs:
               --ingress external \
               --cpu 0.25 \
               --memory 0.5Gi \
-              --min-replicas 0 \
+              --min-replicas 1 \
               --max-replicas 1
           fi
 
@@ -128,6 +128,13 @@ jobs:
             --name "$APP" \
             --resource-group "$RG" \
             --revision-weight latest=100 || true
+
+          echo "Ensuring one running replica for deployment verification..."
+          az containerapp update \
+            --name "$APP" \
+            --resource-group "$RG" \
+            --min-replicas 1 \
+            --max-replicas 1 || true
 
           echo "Container app summary:"
           az containerapp show \
@@ -153,7 +160,7 @@ jobs:
 
           echo "Container App URL: $BASE_URL"
           echo "Waiting for Azure revision to warm up..."
-          sleep 60
+          sleep 120
 
           for i in {1..15}; do
             echo "Health check attempt $i..."
