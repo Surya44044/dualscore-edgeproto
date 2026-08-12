@@ -8,6 +8,6 @@ data:
     - "DDoS"
     - "Recon"
     - "Web-based"
-    - "Brute Force"
+    - "BruteForce"
     - "Spoofing"
     - "Mirai"

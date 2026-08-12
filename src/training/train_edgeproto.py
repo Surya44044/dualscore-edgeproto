@@ -11,8 +11,21 @@ from src.models.edgeproto import get_model
 from src.training.losses import PrototypeLoss, SeparationLoss
 
 def load_config(config_path):
-    with open(config_path, 'r') as f:
-        return yaml.safe_load(f)
+    from pathlib import Path as _P
+    def _resolve(path):
+        with open(path, 'r') as f:
+            d = yaml.safe_load(f) or {}
+        inc = d.pop('include', None)
+        if inc:
+            base = _resolve(str(_P(path).parent / inc))
+            for k, v in d.items():
+                if k in base and isinstance(base[k], dict) and isinstance(v, dict):
+                    base[k].update(v)
+                else:
+                    base[k] = v
+            return base
+        return d
+    return _resolve(config_path)
 
 def train(config_path, data_prefix, output_dir, seed=42):
     random.seed(seed)

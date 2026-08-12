@@ -54,6 +54,17 @@ def make_splits(input_file, config_path, output_dir="data/splits"):
     
     if len(test_unknown_df) > 0:
         test_unknown_df[numeric_cols] = scaler.transform(test_unknown_df[numeric_cols])
+    # Pad numeric features to 48 (CICIoT2023 has 46); zero-pad AFTER scaling.
+    TARGET_FEATURES = 48
+    if len(numeric_cols) < TARGET_FEATURES:
+        pad_cols = [f"pad_{i:02d}" for i in range(TARGET_FEATURES - len(numeric_cols))]
+        for c in pad_cols:
+            train_df[c] = 0.0
+            val_df[c] = 0.0
+            test_known_df[c] = 0.0
+            if len(test_unknown_df) > 0:
+                test_unknown_df[c] = 0.0
+        numeric_cols = numeric_cols + pad_cols
     
     # Type cast back to float32
     train_df[numeric_cols] = train_df[numeric_cols].astype(np.float32)

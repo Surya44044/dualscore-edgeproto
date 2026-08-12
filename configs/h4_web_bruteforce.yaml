@@ -3,7 +3,7 @@ data:
   dataset: "ciciot2023"
   held_out_classes:
     - "Web-based"
-    - "Brute Force"
+    - "BruteForce"
   known_classes:
     - "Benign"
     - "DDoS"

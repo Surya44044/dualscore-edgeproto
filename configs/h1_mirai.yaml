@@ -9,5 +9,5 @@ data:
     - "DoS"
     - "Recon"
     - "Web-based"
-    - "Brute Force"
+    - "BruteForce"
     - "Spoofing"
