@@ -1,0 +1,7 @@
+exp,model,closed_acc,AUROC,OSCR
+h1_mirai,XGB,0.9168,0.1803,0.8053
+h2_recon,XGB,0.9509,0.1270,0.8627
+h3_spoofing,XGB,0.9509,0.1388,0.8537
+h4_web_bruteforce,XGB,0.9523,0.1540,0.8332
+h5_dos,XGB,0.9161,0.5299,0.4678
+h5b_dos_ddos,XGB,0.8978,0.3232,0.6689
