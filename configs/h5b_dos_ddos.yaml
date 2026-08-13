@@ -1,0 +1,13 @@
+include: "default_cpu_config.yaml"
+data:
+  dataset: "ciciot2023"
+  held_out_classes:
+    - "DoS"
+    - "DDoS"
+  known_classes:
+    - "Benign"
+    - "Recon"
+    - "Web-based"
+    - "BruteForce"
+    - "Spoofing"
+    - "Mirai"
