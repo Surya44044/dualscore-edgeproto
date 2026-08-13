@@ -88,3 +88,5 @@ run_rtiot_holdout.sh
 run_sanity.sh
 data/splits_10k/
 data/splits_10k/
+scripts/__pycache__/
+**/__pycache__/
