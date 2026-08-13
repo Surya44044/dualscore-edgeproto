@@ -1,0 +1,7 @@
+experiment,known_acc,base_AUROC,base_OSCR,hybrid_AUROC,hybrid_OSCR_corrected
+h1_mirai,0.6396,0.9092,0.6059,0.9334,0.6142
+h2_recon,0.7258,0.8409,0.6432,0.8473,0.6451
+h3_spoofing,0.7148,0.7286,0.5693,0.8089,0.6133
+h4_web_bruteforce,0.7887,0.8027,0.6639,0.7987,0.6587
+h5_dos,0.7056,0.2717,0.2615,0.2834,0.2708
+h5b_dos_ddos,0.6609,0.6294,0.4744,0.7887,0.5506
