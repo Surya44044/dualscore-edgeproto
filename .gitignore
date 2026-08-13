@@ -86,3 +86,4 @@ run_po_sanity.sh
 run_preflight.sh
 run_rtiot_holdout.sh
 run_sanity.sh
+data/splits_10k/
