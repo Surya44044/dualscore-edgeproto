@@ -1,5 +1,5 @@
 #!/bin/bash
-# CICIoT2023 3-seed runner — crash-tolerant, resumable, fully logged
+# CICIoT2023 3-seed runner v2 — crash-tolerant, resumable, fully logged
 cd ~/dualscore-edgeproto
 export PYTHONPATH=.
 LOG=~/ciciot_10k_seeds.log
@@ -51,20 +51,9 @@ for S in $SEEDS; do
       python src/evaluation/eval_open_set.py --config "configs/$cfg.yaml" --data_prefix "data/splits/$cfg" --model_path "models/ciciot10k_${cfg}_base/best_edgeproto.pt" --output_dir results/tables/ciciot2023_10k >> "$LOG" 2>&1 \
         || { echo "FAIL $tag eval_base $(date)" >> "$ERRLOG"; step_fail=1; }
       if [ $step_fail -eq 0 ]; then
-        python - << 'PYEOF'
-import json
-try:
-    j = json.load(open("results/tables/ciciot2023_10k/${cfg}_results.json"))
-    assert "AUROC" in j or "open_set_auroc" in j
-    print("VALID base json")
-except Exception as e:
-    print("INVALID base json:", e); raise SystemExit(1)
-PYEOF
-        if [ $? -eq 0 ]; then
-          cp "results/tables/ciciot2023_10k/${cfg}_results.json" "$SEEDIR/${tag}_base.json"
-        else
-          echo "FAIL $tag validate_base $(date)" >> "$ERRLOG"; step_fail=1
-        fi
+        python scripts/validate_result.py "results/tables/ciciot2023_10k/${cfg}_results.json" >> "$LOG" 2>&1 \
+          || { echo "FAIL $tag validate_base $(date)" >> "$ERRLOG"; step_fail=1; }
+        [ $step_fail -eq 0 ] && cp "results/tables/ciciot2023_10k/${cfg}_results.json" "$SEEDIR/${tag}_base.json"
       fi
     fi
 
@@ -73,20 +62,9 @@ PYEOF
       python src/evaluation/evaluate_edgeproto_hybrid.py --prefix "$cfg" --config "configs/$cfg.yaml" --edgeproto_model "models/ciciot10k_${cfg}_base/best_edgeproto.pt" >> "$LOG" 2>&1 \
         || { echo "FAIL $tag hybrid $(date)" >> "$ERRLOG"; step_fail=1; }
       if [ $step_fail -eq 0 ]; then
-        python - << 'PYEOF'
-import json
-try:
-    j = json.load(open("results/tables/hybrid/${cfg}_Hybrid-Mean-50-50_results.json"))
-    assert isinstance(j.get("AUROC"), float) or isinstance(j.get("AUROC"), int)
-    print("VALID hybrid json")
-except Exception as e:
-    print("INVALID hybrid json:", e); raise SystemExit(1)
-PYEOF
-        if [ $? -eq 0 ]; then
-          cp "results/tables/hybrid/${cfg}_Hybrid-Mean-50-50_results.json" "$SEEDIR/${tag}_hybrid.json"
-        else
-          echo "FAIL $tag validate_hybrid $(date)" >> "$ERRLOG"; step_fail=1
-        fi
+        python scripts/validate_result.py "results/tables/hybrid/${cfg}_Hybrid-Mean-50-50_results.json" >> "$LOG" 2>&1 \
+          || { echo "FAIL $tag validate_hybrid $(date)" >> "$ERRLOG"; step_fail=1; }
+        [ $step_fail -eq 0 ] && cp "results/tables/hybrid/${cfg}_Hybrid-Mean-50-50_results.json" "$SEEDIR/${tag}_hybrid.json"
       fi
     fi
 
