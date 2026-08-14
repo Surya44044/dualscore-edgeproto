@@ -14,7 +14,7 @@ need = [
     f'configs/{exp}.yaml',
     f'data/splits/{exp}_train.csv', f'data/splits/{exp}_val.csv',
     f'data/splits/{exp}_test_known.csv', f'data/splits/{exp}_test_unknown.csv',
-    f'models/ciciot10k_{exp}_base/best_edgeproto.pt',
+    (sys.argv[3] if len(sys.argv) > 3 else f'models/ciciot10k_{exp}_base/best_edgeproto.pt'),
 ]
 for p in need:
     if not os.path.exists(p):
