@@ -1,0 +1,7 @@
+{
+  "exp": "h1_natural_ratio",
+  "n_known": 56598,
+  "n_unknown": 3559,
+  "AUROC": 0.9940147329512954,
+  "closed_acc": 0.7258383688469557
+}
