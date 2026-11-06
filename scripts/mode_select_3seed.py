@@ -60,7 +60,7 @@ for exp in EXPS:
         try:
             r=one(exp,s); recs.append(r)
             json.dump(r,open(OUT/f'{exp}_s{s}_modesel.json','w'),indent=2)
-            print(f'{exp:<20} s{:<5} AUROC={r["AUROC"]:.4f} OSCR={r["OSCR"]:.4f}',flush=True)
+            print("MODE {0} seed{1} AUROC={2:.4f} OSCR={3:.4f}".format(exp, s, r["AUROC"], r["OSCR"]), flush=True)
         except Exception as e:
             print('FAIL',exp,s,repr(e)[:150],flush=True)
 # aggregate vs saved s2025 results

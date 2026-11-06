@@ -1,0 +1,15 @@
+{
+  "exp": "h2_recon",
+  "seed": 42,
+  "AUROC": 0.8747983070500928,
+  "OSCR": 0.7087892582417582,
+  "modes": {
+    "Benign": "std",
+    "BruteForce": "std",
+    "DDoS": "cal",
+    "DoS": "cal",
+    "Mirai": "cal",
+    "Spoofing": "std",
+    "Web-based": "std"
+  }
+}

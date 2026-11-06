@@ -1,0 +1,14 @@
+{
+  "exp": "h4_web_bruteforce",
+  "seed": 123,
+  "AUROC": 0.8138952444027171,
+  "OSCR": 0.6723923066101755,
+  "modes": {
+    "Benign": "std",
+    "DDoS": "std",
+    "DoS": "cal",
+    "Mirai": "cal",
+    "Recon": "std",
+    "Spoofing": "std"
+  }
+}

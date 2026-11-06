@@ -1,0 +1,15 @@
+{
+  "exp": "h3_spoofing",
+  "seed": 123,
+  "AUROC": 0.7880549869773085,
+  "OSCR": 0.6466377285214785,
+  "modes": {
+    "Benign": "std",
+    "BruteForce": "std",
+    "DDoS": "cal",
+    "DoS": "cal",
+    "Mirai": "cal",
+    "Recon": "std",
+    "Web-based": "std"
+  }
+}

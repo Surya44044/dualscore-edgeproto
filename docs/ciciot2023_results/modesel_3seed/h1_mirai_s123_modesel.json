@@ -1,0 +1,15 @@
+{
+  "exp": "h1_mirai",
+  "seed": 123,
+  "AUROC": 0.9286701912373341,
+  "OSCR": 0.6535888019123733,
+  "modes": {
+    "Benign": "std",
+    "BruteForce": "std",
+    "DDoS": "cal",
+    "DoS": "cal",
+    "Recon": "std",
+    "Spoofing": "std",
+    "Web-based": "std"
+  }
+}

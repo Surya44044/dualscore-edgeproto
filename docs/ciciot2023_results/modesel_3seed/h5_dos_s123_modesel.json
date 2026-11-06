@@ -1,0 +1,15 @@
+{
+  "exp": "h5_dos",
+  "seed": 123,
+  "AUROC": 0.5047676027543885,
+  "OSCR": 0.46807412373340945,
+  "modes": {
+    "Benign": "std",
+    "BruteForce": "std",
+    "DDoS": "cal",
+    "Mirai": "cal",
+    "Recon": "std",
+    "Spoofing": "std",
+    "Web-based": "std"
+  }
+}
