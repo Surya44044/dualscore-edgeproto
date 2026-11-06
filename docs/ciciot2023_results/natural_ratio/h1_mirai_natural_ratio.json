@@ -1,0 +1,10 @@
+{
+  "exp": "h1_mirai_natural_ratio",
+  "AUROC": 0.9941294073345175,
+  "closed_acc": 0.7258383688469557,
+  "n_known": 56598,
+  "n_unknown": 3586,
+  "unknown": [
+    "Mirai"
+  ]
+}

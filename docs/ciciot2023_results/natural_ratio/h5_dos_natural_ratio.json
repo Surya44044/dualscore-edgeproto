@@ -1,0 +1,10 @@
+{
+  "exp": "h5_dos_natural_ratio",
+  "AUROC": 0.6774010784035488,
+  "closed_acc": 0.9812305955405024,
+  "n_known": 49602,
+  "n_unknown": 12551,
+  "unknown": [
+    "DoS"
+  ]
+}

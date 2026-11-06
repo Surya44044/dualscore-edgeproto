@@ -1,0 +1,11 @@
+{
+  "exp": "h4_web_bruteforce_natural_ratio_capped",
+  "AUROC": 0.8965720754025781,
+  "closed_acc": 0.7462208429272199,
+  "n_known": 59934,
+  "n_unknown": 1499,
+  "unknown": [
+    "Web-based",
+    "BruteForce"
+  ]
+}

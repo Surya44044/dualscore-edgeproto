@@ -1,0 +1,10 @@
+{
+  "exp": "h3_spoofing_natural_ratio",
+  "AUROC": 0.8978473903572459,
+  "closed_acc": 0.7521985242090367,
+  "n_known": 59358,
+  "n_unknown": 630,
+  "unknown": [
+    "Spoofing"
+  ]
+}
