@@ -1,0 +1,19 @@
+{
+    "prefix": "h5_dos",
+    "config name": "h5_dos",
+    "unknown_class": null,
+    "model": "Hybrid-AE-0.75",
+    "knownf1macro": 0.698216970526946,
+    "AUROC": 0.29171959808049097,
+    "AUPR_Out": 0.34951780794980686,
+    "FPRat95_TPR": 0.8556800342514628,
+    "TPRat1_FPR": 0.00928,
+    "detection_error": 0.4301131711145997,
+    "falsealarmsper10kat95tpr": 8556.800342514627,
+    "OSCR": 0.32249947748679886,
+    "params_numeric": 15356,
+    "rawweightkb_fp32": 59.984375,
+    "savedmodelsize_kb": 72.84765625,
+    "inferencetime1000samplesseconds": 0.0052385975000106555,
+    "notes": "Hybrid Hybrid-AE-0.75 evaluation"
+}

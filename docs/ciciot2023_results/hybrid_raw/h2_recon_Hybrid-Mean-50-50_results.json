@@ -1,0 +1,19 @@
+{
+    "prefix": "h2_recon",
+    "config name": "h2_recon",
+    "unknown_class": null,
+    "model": "Hybrid-Mean-50-50",
+    "knownf1macro": 0.720229285034163,
+    "AUROC": 0.8993062985229056,
+    "AUPR_Out": 0.8693656515482292,
+    "FPRat95_TPR": 0.3530576566290852,
+    "TPRat1_FPR": 0.22328,
+    "detection_error": 0.1757985400313972,
+    "falsealarmsper10kat95tpr": 3530.576566290852,
+    "OSCR": 0.7160724843014128,
+    "params_numeric": 15356,
+    "rawweightkb_fp32": 59.984375,
+    "savedmodelsize_kb": 72.8828125,
+    "inferencetime1000samplesseconds": 0.005308631600018998,
+    "notes": "Hybrid Hybrid-Mean-50-50 evaluation"
+}

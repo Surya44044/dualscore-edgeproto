@@ -1,0 +1,19 @@
+{
+    "prefix": "h3_spoofing",
+    "config name": "h3_spoofing",
+    "unknown_class": null,
+    "model": "Hybrid-Mean-50-50",
+    "knownf1macro": 0.7189324774479181,
+    "AUROC": 0.8260809026687598,
+    "AUPR_Out": 0.7795373766012588,
+    "FPRat95_TPR": 0.542386185243328,
+    "TPRat1_FPR": 0.12136,
+    "detection_error": 0.23808851862423294,
+    "falsealarmsper10kat95tpr": 5423.861852433281,
+    "OSCR": 0.6143829741686885,
+    "params_numeric": 15356,
+    "rawweightkb_fp32": 59.984375,
+    "savedmodelsize_kb": 72.935546875,
+    "inferencetime1000samplesseconds": 0.005235661400001845,
+    "notes": "Hybrid Hybrid-Mean-50-50 evaluation"
+}

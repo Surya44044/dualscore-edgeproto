@@ -1,0 +1,110 @@
+{
+  "exp": "h5_dos",
+  "top_pairs": [
+    {
+      "a": "BruteForce",
+      "b": "Web-based",
+      "cos": 0.4274
+    },
+    {
+      "a": "Spoofing",
+      "b": "Web-based",
+      "cos": 0.3928
+    },
+    {
+      "a": "BruteForce",
+      "b": "Recon",
+      "cos": 0.379
+    },
+    {
+      "a": "Benign",
+      "b": "Spoofing",
+      "cos": 0.3605
+    },
+    {
+      "a": "Recon",
+      "b": "Web-based",
+      "cos": 0.344
+    },
+    {
+      "a": "Benign",
+      "b": "Recon",
+      "cos": 0.2447
+    },
+    {
+      "a": "Benign",
+      "b": "BruteForce",
+      "cos": 0.1235
+    },
+    {
+      "a": "BruteForce",
+      "b": "Spoofing",
+      "cos": 0.0489
+    },
+    {
+      "a": "Benign",
+      "b": "Web-based",
+      "cos": -0.0309
+    },
+    {
+      "a": "DDoS",
+      "b": "Mirai",
+      "cos": -0.0569
+    },
+    {
+      "a": "Recon",
+      "b": "Spoofing",
+      "cos": -0.065
+    },
+    {
+      "a": "Mirai",
+      "b": "Spoofing",
+      "cos": -0.2767
+    },
+    {
+      "a": "Benign",
+      "b": "Mirai",
+      "cos": -0.3314
+    },
+    {
+      "a": "DDoS",
+      "b": "Recon",
+      "cos": -0.3449
+    },
+    {
+      "a": "Mirai",
+      "b": "Recon",
+      "cos": -0.3598
+    },
+    {
+      "a": "Benign",
+      "b": "DDoS",
+      "cos": -0.3715
+    },
+    {
+      "a": "DDoS",
+      "b": "Spoofing",
+      "cos": -0.3956
+    },
+    {
+      "a": "Mirai",
+      "b": "Web-based",
+      "cos": -0.4393
+    },
+    {
+      "a": "BruteForce",
+      "b": "Mirai",
+      "cos": -0.4732
+    },
+    {
+      "a": "BruteForce",
+      "b": "DDoS",
+      "cos": -0.4752
+    },
+    {
+      "a": "DDoS",
+      "b": "Web-based",
+      "cos": -0.5074
+    }
+  ]
+}

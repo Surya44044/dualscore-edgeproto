@@ -1,0 +1,19 @@
+{
+    "prefix": "h5_dos",
+    "config name": "h5_dos",
+    "unknown_class": null,
+    "model": "Hybrid-Mean-50-50",
+    "knownf1macro": 0.703403004347505,
+    "AUROC": 0.33379001427144284,
+    "AUPR_Out": 0.3600886512222941,
+    "FPRat95_TPR": 0.8619594691023262,
+    "TPRat1_FPR": 0.0069,
+    "detection_error": 0.43267250321107464,
+    "falsealarmsper10kat95tpr": 8619.594691023261,
+    "OSCR": 0.3261029691736834,
+    "params_numeric": 15356,
+    "rawweightkb_fp32": 59.984375,
+    "savedmodelsize_kb": 72.84765625,
+    "inferencetime1000samplesseconds": 0.00526817950012628,
+    "notes": "Hybrid Hybrid-Mean-50-50 evaluation"
+}

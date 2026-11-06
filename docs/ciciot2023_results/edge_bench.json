@@ -1,0 +1,5 @@
+{
+  "ms_per_sample_batch1_pinned": 0.4984,
+  "samples": 2000,
+  "note": "core0-only via taskset; MemoryMax 512M via systemd-run wrapper"
+}

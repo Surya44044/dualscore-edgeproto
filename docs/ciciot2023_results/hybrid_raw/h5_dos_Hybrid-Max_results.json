@@ -1,0 +1,19 @@
+{
+    "prefix": "h5_dos",
+    "config name": "h5_dos",
+    "unknown_class": null,
+    "model": "Hybrid-Max",
+    "knownf1macro": 0.698216970526946,
+    "AUROC": 0.2794758377336949,
+    "AUPR_Out": 0.3426142980348888,
+    "FPRat95_TPR": 0.8635293278150421,
+    "TPRat1_FPR": 0.00512,
+    "detection_error": 0.43494565719994294,
+    "falsealarmsper10kat95tpr": 8635.29327815042,
+    "OSCR": 0.32249947748679886,
+    "params_numeric": 15356,
+    "rawweightkb_fp32": 59.984375,
+    "savedmodelsize_kb": 72.84765625,
+    "inferencetime1000samplesseconds": 0.0052385975000106555,
+    "notes": "Hybrid Hybrid-Max evaluation"
+}

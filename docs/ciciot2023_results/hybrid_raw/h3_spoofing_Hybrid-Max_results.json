@@ -1,0 +1,19 @@
+{
+    "prefix": "h3_spoofing",
+    "config name": "h3_spoofing",
+    "unknown_class": null,
+    "model": "Hybrid-Max",
+    "knownf1macro": 0.7237505412176909,
+    "AUROC": 0.8213507801127443,
+    "AUPR_Out": 0.7397542617404324,
+    "FPRat95_TPR": 0.36215570144141573,
+    "TPRat1_FPR": 0.06322,
+    "detection_error": 0.20605516340802052,
+    "falsealarmsper10kat95tpr": 3621.5570144141575,
+    "OSCR": 0.6462680242971315,
+    "params_numeric": 15356,
+    "rawweightkb_fp32": 59.984375,
+    "savedmodelsize_kb": 72.935546875,
+    "inferencetime1000samplesseconds": 0.005256752599962056,
+    "notes": "Hybrid Hybrid-Max evaluation"
+}

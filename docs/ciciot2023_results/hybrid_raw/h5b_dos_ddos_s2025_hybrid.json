@@ -1,0 +1,19 @@
+{
+    "prefix": "h5b_dos_ddos",
+    "config name": "h5b_dos_ddos",
+    "unknown_class": null,
+    "model": "Hybrid-Mean-50-50",
+    "knownf1macro": 0.6506770086916164,
+    "AUROC": 0.6659072481924572,
+    "AUPR_Out": 0.824273523511137,
+    "FPRat95_TPR": 0.802353605315153,
+    "TPRat1_FPR": 0.17421,
+    "detection_error": 0.347965000868489,
+    "falsealarmsper10kat95tpr": 8023.53605315153,
+    "OSCR": 0.5268476288077817,
+    "params_numeric": 15356,
+    "rawweightkb_fp32": 59.984375,
+    "savedmodelsize_kb": 72.828125,
+    "inferencetime1000samplesseconds": 0.005278081600044971,
+    "notes": "Hybrid Hybrid-Mean-50-50 evaluation"
+}

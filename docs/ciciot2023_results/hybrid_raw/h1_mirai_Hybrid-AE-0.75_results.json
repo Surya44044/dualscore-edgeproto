@@ -1,0 +1,19 @@
+{
+    "prefix": "h1_mirai",
+    "config name": "h1_mirai",
+    "unknown_class": null,
+    "model": "Hybrid-AE-0.75",
+    "knownf1macro": 0.6328926312865477,
+    "AUROC": 0.9886296608748394,
+    "AUPR_Out": 0.9873792179107631,
+    "FPRat95_TPR": 0.034626088197516766,
+    "TPRat1_FPR": 0.68156,
+    "detection_error": 0.039765888397316984,
+    "falsealarmsper10kat95tpr": 346.26088197516765,
+    "OSCR": 0.6639330144855146,
+    "params_numeric": 15356,
+    "rawweightkb_fp32": 59.984375,
+    "savedmodelsize_kb": 72.8828125,
+    "inferencetime1000samplesseconds": 0.00523314259999097,
+    "notes": "Hybrid Hybrid-AE-0.75 evaluation"
+}

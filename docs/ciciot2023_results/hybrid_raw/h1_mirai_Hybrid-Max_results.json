@@ -1,0 +1,19 @@
+{
+    "prefix": "h1_mirai",
+    "config name": "h1_mirai",
+    "unknown_class": null,
+    "model": "Hybrid-Max",
+    "knownf1macro": 0.6328926312865477,
+    "AUROC": 0.9407621590909092,
+    "AUPR_Out": 0.9388789735483041,
+    "FPRat95_TPR": 0.28555373198230344,
+    "TPRat1_FPR": 0.66804,
+    "detection_error": 0.14955246182389043,
+    "falsealarmsper10kat95tpr": 2855.5373198230345,
+    "OSCR": 0.6639330144855146,
+    "params_numeric": 15356,
+    "rawweightkb_fp32": 59.984375,
+    "savedmodelsize_kb": 72.8828125,
+    "inferencetime1000samplesseconds": 0.00523314259999097,
+    "notes": "Hybrid Hybrid-Max evaluation"
+}

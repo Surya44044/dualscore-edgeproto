@@ -1,0 +1,19 @@
+{
+    "prefix": "h4_web_bruteforce",
+    "config name": "h4_web_bruteforce",
+    "unknown_class": null,
+    "model": "Hybrid-Max",
+    "knownf1macro": 0.7984553451896338,
+    "AUROC": 0.8401744102223387,
+    "AUPR_Out": 0.6779865659832507,
+    "FPRat95_TPR": 0.5031836516985032,
+    "TPRat1_FPR": 0.074122966238738,
+    "detection_error": 0.227788748919885,
+    "falsealarmsper10kat95tpr": 5031.836516985032,
+    "OSCR": 0.6956038714109796,
+    "params_numeric": 15356,
+    "rawweightkb_fp32": 59.984375,
+    "savedmodelsize_kb": 72.978515625,
+    "inferencetime1000samplesseconds": 0.005274210599964135,
+    "notes": "Hybrid Hybrid-Max evaluation"
+}

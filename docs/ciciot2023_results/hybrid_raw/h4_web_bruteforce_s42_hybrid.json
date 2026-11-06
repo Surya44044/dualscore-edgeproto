@@ -1,0 +1,19 @@
+{
+    "prefix": "h4_web_bruteforce",
+    "config name": "h4_web_bruteforce",
+    "unknown_class": null,
+    "model": "Hybrid-Mean-50-50",
+    "knownf1macro": 0.8070811142152317,
+    "AUROC": 0.8251072365302821,
+    "AUPR_Out": 0.6551900396316511,
+    "FPRat95_TPR": 0.5561556155615561,
+    "TPRat1_FPR": 0.0675885284314049,
+    "detection_error": 0.23013227529808852,
+    "falsealarmsper10kat95tpr": 5561.556155615562,
+    "OSCR": 0.6911104080827102,
+    "params_numeric": 15356,
+    "rawweightkb_fp32": 59.984375,
+    "savedmodelsize_kb": 72.978515625,
+    "inferencetime1000samplesseconds": 0.00526424859999679,
+    "notes": "Hybrid Hybrid-Mean-50-50 evaluation"
+}

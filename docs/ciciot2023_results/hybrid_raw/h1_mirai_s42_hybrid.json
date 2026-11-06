@@ -1,0 +1,19 @@
+{
+    "prefix": "h1_mirai",
+    "config name": "h1_mirai",
+    "unknown_class": null,
+    "model": "Hybrid-Mean-50-50",
+    "knownf1macro": 0.6324777771622443,
+    "AUROC": 0.9099158525403168,
+    "AUPR_Out": 0.9139272085227245,
+    "FPRat95_TPR": 0.3856322249179392,
+    "TPRat1_FPR": 0.6586,
+    "detection_error": 0.17312792065077778,
+    "falsealarmsper10kat95tpr": 3856.3222491793917,
+    "OSCR": 0.6479914344583987,
+    "params_numeric": 15356,
+    "rawweightkb_fp32": 59.984375,
+    "savedmodelsize_kb": 72.8828125,
+    "inferencetime1000samplesseconds": 0.0053036115999930186,
+    "notes": "Hybrid Hybrid-Mean-50-50 evaluation"
+}
