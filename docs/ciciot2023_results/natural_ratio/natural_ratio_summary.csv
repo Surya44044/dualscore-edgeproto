@@ -1,0 +1,7 @@
+exp,AUROC,closed_acc,n_known,n_unknown,unknown
+h1_mirai_natural_ratio,0.9941,0.7258,56598,3586,Mirai
+h2_recon_natural_ratio,0.9664,0.731,59526,459,Recon
+h3_spoofing_natural_ratio,0.8978,0.7522,59358,630,Spoofing
+h4_web_bruteforce_natural_ratio,0.8929,0.7462,59934,48,Web-based|BruteForce
+h5_dos_natural_ratio,0.6774,0.9812,49602,12551,DoS
+h4_web_bruteforce_natural_ratio_capped,0.8966,0.7462,59934,1499,Web-based|BruteForce
